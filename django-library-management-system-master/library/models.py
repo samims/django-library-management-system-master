@@ -7,6 +7,9 @@ from datetime import date
 class Category(models.Model):
     title = models.CharField(max_length=255, unique=True)
 
+    def __str__(self):
+        return self.title
+
 
 class Book(models.Model):
     title = models.CharField(max_length=255, unique=True)
@@ -15,6 +18,9 @@ class Book(models.Model):
     author = models.CharField(max_length=255, unique=True)
     description = models.TextField(max_length=25000, blank=True, null=True)
     available = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
 
 
 class Student(models.Model):
@@ -25,6 +31,9 @@ class Student(models.Model):
     section = models.CharField(max_length=10)
     year = models.CharField(max_length=10)
 
+    def __str__(self):
+        return self.firstname
+
 
 class Borrow(models.Model):
     book = models.ManyToManyField(Book)
@@ -32,3 +41,4 @@ class Borrow(models.Model):
     qty = models.IntegerField(default=0)
     date = models.DateField(default=date.today)
     status = models.CharField(max_length=25)
+    approved = models.BooleanField(default=False)

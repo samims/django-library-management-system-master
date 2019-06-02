@@ -83,7 +83,8 @@ def borrow(request):
     if request.method == "POST":
         student_id = request.POST['student_id']
         student = Student.objects.get(id=student_id)
-        status = "Borrowed"
+        # status = "Borrowed"
+        status = "Requested"
         books_id = request.POST.getlist('selector')
         for book_id in books_id:
             book = Book.objects.get(id=book_id)

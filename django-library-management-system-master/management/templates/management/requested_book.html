@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <table style="width:100%">
+        <tr>
+            <th>Book</th>
+            <th>Requested By</th>
+            <th>status</th>
+            <th></th>
+        </tr>
+
+        {% for borrow in borrow_list %}
+        {% for book in borrow.book.all %}
+        {% for student in borrow.student.all %}
+        <td>{{book}}</td>
+        <td> {{student.firstname}} {{student.lastname}}</td>
+        <td>{{borrow.status}}</td>
+        <td>
+            <form method="get" action="/management/approve/">
+                <input type="hidden" name="student" value={{student.id}}><input>
+                <input type="hidden"  name="book" value={{book.id}} ><input>
+                <input type="hidden" name="borrow" value={{borrow.id}}><input>
+                <button class="btn btn-success" type="submit">Approve</button>
+            </form>
+        </td>
+        {% endfor %}
+        {% endfor %}
+        {% endfor %}
+
+    </table>
+</div>
+
+</body>
+</html>
