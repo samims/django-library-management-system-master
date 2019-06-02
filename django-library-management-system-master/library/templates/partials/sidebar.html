@@ -13,10 +13,12 @@
                     <span class="sidebar-title">Accounts</span>
                     <b class="caret"></b>
                 </a>
-                <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
-                    <li><a href="{% url 'students' %}">Students</a></li>
-                    <li><a href="#">Roles</a></li>
-                </ul>
+                {% if request.user.is_staff %}
+                    <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+                        <li><a href="{% url 'students' %}">Students</a></li>
+                        <li><a href="#">Roles</a></li>
+                    </ul>
+                {% endif %}
             </li>
             <li>
                 <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">

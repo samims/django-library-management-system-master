@@ -4,44 +4,68 @@ from django.views import View
 from django.shortcuts import redirect
 from library.models import Book, Borrow, Student
 from django.shortcuts import get_object_or_404
+from datetime import datetime
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
 
 
-class RequestedBooks(View):
-    def get_queryset(self):
-        qs = Borrow.objects.all()
-        return qs
-
+class RequestedBooks(LoginRequiredMixin, View):
     def get(self, request):
-        context = {
-            'borrow_list': self.get_queryset()
-        }
+        if not request.user.is_staff:
+            redirect('/books')
+        requested_list = Borrow.objects.filter(status='Requested')
+        borrowed_list = Borrow.objects.filter(status='Borrowed')
+        return render(request, 'management/backup.html',
+                      context={'requested_list': requested_list, 'borrowed_list': borrowed_list})
 
-        return render(request, 'management/requested_book.html', context=context)
 
-
-# class ApproveBook(View):
-#     def get(self, request, pk,):
-#         print(request.GET, '------------')
-#         # borrow_obj = get_object_or_404(klass=Borrow, id=pk)
-#         # book_obj =
-#         return redirect('management:requested_books')
-
+@login_required(login_url='/login')
 def approve(request):
+    if not request.user.is_staff:
+        return redirect('/books')
     student_id = request.GET.get('student')
     book_id = request.GET.get('book')
-    borrow_id= request.GET.get('borrow')
+    borrow_id = request.GET.get('borrow')
     # student_obj = Student.objects.get(id=student_id)
     student_obj = get_object_or_404(Student, id=student_id)
     book_obj = get_object_or_404(Book, id=book_id)
     borrow_obj = get_object_or_404(Borrow, id=borrow_id)
-    # borrow
-
     book_obj.available -= 1
     book_obj.save()
     borrow_obj.status = 'Borrowed'
     borrow_obj.approved = True
     borrow_obj.save()
     return redirect('management:requested_books')
+
+
+def returning(request):
+    b_id = int(request.GET.get("borrow_id"))
+    borrow = get_object_or_404(Borrow, id=b_id)
+    print(borrow, "---------")
+    borrow.date = datetime.now()
+    borrow.status = "Returned"
+    borrow.save()
+    return redirect('management:requested_books')
+
+
+@login_required(login_url='/login')
+def students(request):
+    if not request.user.is_staff:
+        return redirect('/books')
+    if request.method == "POST":
+        sid = request.POST["sid"]
+        firstname = request.POST["firstname"]
+        lastname = request.POST["lastname"]
+        department = request.POST["department"]
+        section = request.POST["section"]
+        year = request.POST["year"]
+
+        student = Student(student_id=sid, firstname=firstname, lastname=lastname, department=department,
+                          section=section, year=year)
+        student.save()
+        return redirect("/students")
+    students = Student.objects.all()
+    return render(request, "students.html", {"students": students})

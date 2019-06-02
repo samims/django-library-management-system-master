@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+z
+</head>
+<body style="background-color:#0bb5e1">
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Indian Oil Corporation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<br>
+<br>
+
+<div class="container">
+    <h3>Requested Books:</h3>
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Sl. No</th>
+            <th scope="col">Name of Book</th>
+            <th scope="col">Author</th>
+            <th scope="col">Requested By</th>
+            <th scope="col">Choose</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for borrow in borrow_list %}
+            {% for book in borrow.book.all %}
+            {% for student in borrow.student.all %}
+            <td scope="row"> {{book.id}}
+            </td>
+            <td scope="row">{{book}}</td>
+            <td scope="row"> {{student.firstname}} {{student.lastname}}</td>
+            <td scope="row">{{borrow.status}}</td>
+            <td scope="row">
+                <a href="/management/approve/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
+                    <button type="button" class="btn btn-success">Accept</button>
+                </a>
+                <button type="button" class="btn btn-danger">Reject</button>
+            </td>
+
+            {% endfor %}
+            {% endfor %}
+            {% endfor %}
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+    <h3>Issued Books:</h3>
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Sl. No</th>
+            <th scope="col">Name of Book</th>
+            <th scope="col">Author</th>
+            <th scope="col">Issued To</th>
+            <th scope="col">Choose</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for borrow in requested_list %}
+            {% for book in borrow.book.all %}
+            {% for student in borrow.student.all %}
+            <td scope="row"> {{book.id}}
+            </td>
+            <td scope="row">{{book}}</td>
+            <td scope="row"> {{student.firstname}} {{student.lastname}}</td>
+            <td scope="row">{{borrow.status}}</td>
+            <td scope="row">
+                <a href="/management/approve/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
+                    <button type="button" class="btn btn-success">Accept</button>
+                </a>
+                <button type="button" class="btn btn-danger">Reject</button>
+            </td>
+            {% endfor %}
+            {% endfor %}
+            {% endfor %}
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+</body>

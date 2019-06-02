@@ -18,27 +18,23 @@
             <th>status</th>
             <th></th>
         </tr>
-
-        {% for borrow in borrow_list %}
+    <tr>
+        {% for borrow in requested_list %}
         {% for book in borrow.book.all %}
         {% for student in borrow.student.all %}
         <td>{{book}}</td>
         <td> {{student.firstname}} {{student.lastname}}</td>
         <td>{{borrow.status}}</td>
-        <td>
-            <form method="get" action="/management/approve/">
-                <input type="hidden" name="student" value={{student.id}}><input>
-                <input type="hidden"  name="book" value={{book.id}} ><input>
-                <input type="hidden" name="borrow" value={{borrow.id}}><input>
-                <button class="btn btn-success" type="submit">Approve</button>
-            </form>
-        </td>
-        {% endfor %}
-        {% endfor %}
-        {% endfor %}
 
+        {% endfor %}
+        {% endfor %}
+        {% endfor %}
+</tr>
     </table>
 </div>
 
+        {% for borrow in requested_list %}
+            {{borrow}} {{requested_list}}
+        {% endfor %}
 </body>
 </html>

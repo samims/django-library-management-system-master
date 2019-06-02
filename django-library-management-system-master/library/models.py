@@ -1,6 +1,9 @@
 from django.db import models
 from datetime import date
 
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Create your models here.
 
@@ -24,6 +27,7 @@ class Book(models.Model):
 
 
 class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     student_id = models.CharField(max_length=255, unique=True)
     firstname = models.CharField(max_length=255)
     lastname = models.CharField(max_length=255)
@@ -34,6 +38,10 @@ class Student(models.Model):
     def __str__(self):
         return self.firstname
 
+    @property
+    def full_name(self):
+        return "{} {}".format(self.firstname, self.lastname)
+
 
 class Borrow(models.Model):
     book = models.ManyToManyField(Book)
@@ -42,3 +50,5 @@ class Borrow(models.Model):
     date = models.DateField(default=date.today)
     status = models.CharField(max_length=25)
     approved = models.BooleanField(default=False)
+
+

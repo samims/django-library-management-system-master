@@ -28,21 +28,24 @@ def register_view(request):  # Creates a New Account & login New users
 
 
 def login_view(request):
-    if request.user.is_authenticated:
-        return redirect('/')
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return redirect("/books")
-            else:
-                return render(request, 'accounts/login.html', {'error_message': 'Your account has been disabled'})
+    if request.method == "GET":
+        if request.user.is_authenticated:
+            if request.user.is_staff:
+                return redirect('management:requested_books')
+            return redirect('/books')
+        return render(request, 'accounts/login.html')
+
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        if user.is_active:
+            login(request, user)
+            return redirect("/books")
         else:
-            return render(request, 'accounts/login.html', {'error_message': 'Invalid login'})
-    return render(request, 'accounts/login.html')
+            return render(request, 'accounts/login.html', {'error_message': 'Your account has been disabled'})
+    else:
+        return render(request, 'accounts/login.html', {'error_message': 'Invalid login'})
 
 
 def logout_view(request):
