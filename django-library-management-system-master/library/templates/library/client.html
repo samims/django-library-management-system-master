@@ -22,7 +22,7 @@
     <a class="navbar-brand">Indian Oil Corporation</a>
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="#">Username</a>
+            <a class="nav-link" href="#">{{request.user.student.firstname}}</a>
         </li>
     </ul>
     <form class="form-inline">
@@ -49,23 +49,28 @@
         </tr>
         </thead>
         <tbody>
+        {% for book in book_list %}
+
         <tr>
-            {% for book in book_list %}
-                <th scope="row">{{book.serial}}</th>
-                <th scope="row">{{book.title}}</th>
-                <th scope="row">{{book.author}}</th>
-                <th scope="row">{{book.category}}</th>
-                <th scope="row">{{book.available}}</th>
-                <th scope="row">
-                    <a href="/borrow/?user_id={{request.user.id}}&book_id={{book.id}}">
-                        <button type="button" class="btn btn-success btn-sm">Request</button></a>
-                </th>
-
-
-            {% endfor %}
+            <th scope="row">{{book.serial}}</th>
+            <th scope="row">{{book.title}}</th>
+            <th scope="row">{{book.author}}</th>
+            <th scope="row">
+                {% for category in book.categories.all %}
+                    {{category}}&nbsp;
+                {% endfor %}
+            </th>
+            <th scope="row">{{book.available}}</th>
+            <th scope="row">
+                <a href="/borrow/?user_id={{request.user.id}}&book_id={{book.id}}">
+                    <button type="button" class="btn btn-success btn-sm">Request</button>
+                </a>
+            </th>
 
 
         </tr>
+        {% endfor %}
+
         </tbody>
     </table>
 </div>
@@ -109,6 +114,8 @@ document.addEventListener('readystatechange', function() {
 });
 
 })(document);
+
+
 
 </script>
 

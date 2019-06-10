@@ -16,7 +16,6 @@ class BookListView(LoginRequiredMixin, ListView):
     template_name = 'library/client.html'
 
 
-
 @login_required(login_url='/login')
 def borrow(request):
     book_queryset = Book.objects.filter(available__gte=1)
