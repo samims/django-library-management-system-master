@@ -1,9 +1,9 @@
 from datetime import datetime
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Sum
 from django.http import JsonResponse, Http404
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 
 # Create your views here.
@@ -21,20 +21,25 @@ def borrow(request):
     book_queryset = Book.objects.filter(available__gte=1)
     user_id = request.GET.get('user_id')
     book = request.GET.get('book_id')
+
     try:
         student_obj = Student.objects.get(user=request.user)
     except Student.DoesNotExist:
         raise Http404("Student of id {} does not exist".format(request.user.id))
     try:
-        print("---------------", book, type(book))
+        # print("---------------", book, type(book))
         book_obj = Book.objects.get(id=int(book))
+
     except Book.DoesNotExist:
         raise Http404("Book Does not exist")
 
     status = "Requested"
     if Borrow.objects.filter(book__id=book):
+        print("-----------")
+
         return redirect('/books')
     b = Borrow(qty=1, status=status)
+    # print(b, "b")
     b.save()
     b.student.add(student_obj)
     b.book.add(book_obj)

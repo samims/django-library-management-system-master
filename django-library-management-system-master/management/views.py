@@ -1,12 +1,13 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.views import View
-from django.shortcuts import redirect
-from library.models import Book, Borrow, Student
-from django.shortcuts import get_object_or_404
 from datetime import datetime
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404
+from django.shortcuts import redirect
+from django.shortcuts import render
+from django.views import View
+
+from library.models import Book, Borrow, Student
 
 
 # Create your views here.
@@ -15,7 +16,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class RequestedBooks(LoginRequiredMixin, View):
     def get(self, request):
         if not request.user.is_staff:
-            redirect('/books')
+            return redirect('/books')
         requested_list = Borrow.objects.filter(status='Requested')
         borrowed_list = Borrow.objects.filter(status='Borrowed')
         return render(request, 'management/backup.html',
@@ -41,10 +42,22 @@ def approve(request):
     return redirect('management:requested_books')
 
 
+def reject(request):
+    if not request.user.is_staff:
+        return redirect('/books')
+    # student_id = int(request.GET.get('student'))
+    book_id = int(request.GET.get('book'))
+    borrow_id = int(request.GET.get('borrow'))
+    borrow_obj = get_object_or_404(Borrow, id=borrow_id)
+    # student_obj = get_object_or_404(Student, id=student_id)
+    book_obj = get_object_or_404(Book, id=book_id)
+    borrow_obj.book.remove(book_obj)
+    return redirect('management:requested_books')
+
+
 def returning(request):
     b_id = int(request.GET.get("borrow_id"))
     borrow = get_object_or_404(Borrow, id=b_id)
-    print(borrow, "---------")
     borrow.date = datetime.now()
     borrow.status = "Returned"
     borrow.save()

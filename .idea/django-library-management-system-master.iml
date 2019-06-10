@@ -5,7 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/django-library-management-system-master" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (richik-env)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (django-library-management-system-master)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

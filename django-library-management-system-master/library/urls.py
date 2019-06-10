@@ -2,6 +2,9 @@ from django.conf.urls import url, include
 from django.urls import path
 from . import views
 
+
+app_name = 'library'
+
 urlpatterns = [
     # url(r'^index$', views.index),
     # url(r'^books$', views.books, name="books"),

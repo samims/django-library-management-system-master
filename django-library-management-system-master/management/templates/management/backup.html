@@ -9,7 +9,7 @@
 
 </head>
 <body style="background-color:#0bb5e1">
-    {% load management_tag %}
+{% load management_tag %}
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,27 +37,29 @@
         <tbody>
         <tr>
             {% for borrow in requested_list %}
-                    </tr>
+        </tr>
 
-                {% for book in borrow.book.all %}
-                    {% for student in borrow.student.all %}
-                        <td scope="row"> {{book.id}}
-                        </td>
-                        <td scope="row">{{book}}</td>
-                        <td scope="row"> {{student.firstname}}</td>
-                        <td scope="row">{{borrow.status}}</td>
-                        <td scope="row">
-                            <a href="/management/approve/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
-                                <button type="button" class="btn btn-success">Accept</button>
-                            </a></td>
-                        <td><button type="button" class="btn btn-danger">Reject</button></td>
-                        </td>
+        {% for book in borrow.book.all %}
+        {% for student in borrow.student.all %}
+        <td scope="row"> {{book.id}}
+        </td>
+        <td scope="row">{{book}}</td>
+        <td scope="row"> {{student.firstname}}</td>
+        <td scope="row">{{borrow.status}}</td>
+        <td scope="row">
+            <a href="/management/approve/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
+                <button type="button" class="btn btn-success">Accept</button>
+            </a></td>
+        <td><a href="/management/reject/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
+            <button type="button" class="btn btn-danger">Reject</button>
+        </a></td>
+        </td>
 
-                    {% endfor %}
-                {% endfor %}
-                    </tr>
+        {% endfor %}
+        {% endfor %}
+        </tr>
 
-            {% endfor %}
+        {% endfor %}
 
         </tbody>
     </table>
