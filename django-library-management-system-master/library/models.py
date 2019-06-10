@@ -60,7 +60,7 @@ class Borrow(models.Model):
     approved = models.BooleanField(default=False)
 
 
-@receiver(pre_save)
+@receiver(pre_save, sender=Book)
 def set_serial(sender, instance, *args, **kwargs):
     if not instance.id:
         last_obj = Book.objects.last()

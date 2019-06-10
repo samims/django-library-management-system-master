@@ -4,7 +4,7 @@ from django.contrib.auth import (authenticate,
                                  logout
                                  )
 from accounts.forms import UserRegistrationForm
-
+from library.models import Student
 
 def register_view(request):  # Creates a New Account & login New users
     if request.user.is_authenticated:
@@ -12,12 +12,12 @@ def register_view(request):  # Creates a New Account & login New users
     else:
         title = "Register"
         form = UserRegistrationForm(request.POST or None)
-        print(form.is_valid())
         if form.is_valid():
             user = form.save(commit=False)
             password = form.cleaned_data.get("password1")
             user.set_password(password)
             user.save()
+            Student.objects.create(user=user, firstname=user.first_name, lastname=user.last_name)
             # new_user = authenticate(email=user.email, password=password)
             login(request, user)
             return redirect("/books")
