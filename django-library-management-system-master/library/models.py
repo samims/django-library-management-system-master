@@ -72,8 +72,8 @@ def set_serial(sender, instance, *args, **kwargs):
                 raise FieldError("Book object <{}>  serial does not exist".format(last_obj.id))
         else:
             instance.serial = '1'.zfill(6)
-    else:
-        # can't update without serial if you don't want
-        # comment out this else block
-        if not instance.serial:
-            raise FieldError("Book object {} does not have serial".format(instance.id))
+    # else:
+    #     # can't update without serial if you don't want
+    #     # comment out this else block
+    #     if not instance.serial:
+    #         raise FieldError("Book object {} does not have serial".format(instance.id))

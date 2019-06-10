@@ -62,9 +62,22 @@
             </th>
             <th scope="row">{{book.available}}</th>
             <th scope="row">
-                <a href="/borrow/?user_id={{request.user.id}}&book_id={{book.id}}">
-                    <button type="button" class="btn btn-success btn-sm">Request</button>
-                </a>
+
+                    {% if book.id in requested_list %}
+                        <a href="/borrow/?user_id={{request.user.id}}&book_id={{book.id}}">
+                            <button disabled type="button" class="btn btn-info btn-sm">Requested</button>
+                        </a>
+
+                    {% elif book.id in borrowed_list %}
+                        <a href="/borrow/?user_id={{request.user.id}}&book_id={{book.id}}">
+                            <button disabled type="button" class="btn btn-primary btn-sm">Borrowed</button>
+                        </a>
+                    {% else %}
+                        <a href="/borrow/?user_id={{request.user.id}}&book_id={{book.id}}">
+                            <button type="button" class="btn btn-success btn-sm">Request</button>
+                        </a>
+                    {% endif %}
+
             </th>
 
 

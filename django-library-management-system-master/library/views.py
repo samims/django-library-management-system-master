@@ -15,6 +15,24 @@ class BookListView(LoginRequiredMixin, ListView):
     queryset = Book.objects.filter(available__gte=1)
     template_name = 'library/client.html'
 
+    def get_context_data(self, *args, **kwargs):
+        obj_list = Borrow.objects.filter(student__id=self.request.user.student.id)
+        context = super(BookListView, self).get_context_data(*args, **kwargs)
+        borrowed_list = list()
+        requested_list = list()
+        for obj in obj_list.filter(status='Borrowed'):
+            borrowed_book_list = list(obj.book.values_list('id', flat=True))
+            borrowed_list.extend(borrowed_book_list)
+
+        for obj in obj_list.filter(status='Requested'):
+            requested_book_list = list(obj.book.values_list('id', flat=True))
+            requested_list.extend(requested_book_list)
+
+        context['borrowed_list'] = borrowed_list
+        print(borrowed_list)
+        context['requested_list'] = requested_list
+        return context
+
 
 @login_required(login_url='/login')
 def borrow(request):
@@ -34,9 +52,7 @@ def borrow(request):
         raise Http404("Book Does not exist")
 
     status = "Requested"
-    if Borrow.objects.filter(book__id=book):
-        print("-----------")
-
+    if Borrow.objects.filter(book__id=book, student__id=request.user.id):
         return redirect('/books')
     b = Borrow(qty=1, status=status)
     # print(b, "b")

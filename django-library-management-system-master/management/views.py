@@ -35,6 +35,7 @@ def approve(request):
     book_obj = get_object_or_404(Book, id=book_id)
     borrow_obj = get_object_or_404(Borrow, id=borrow_id)
     book_obj.available -= 1
+    book_obj.serial = book_obj.serial
     book_obj.save()
     borrow_obj.status = 'Borrowed'
     borrow_obj.approved = True

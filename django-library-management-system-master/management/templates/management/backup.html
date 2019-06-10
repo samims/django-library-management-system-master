@@ -35,32 +35,29 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
             {% for borrow in requested_list %}
+                {% for book in borrow.book.all %}
+                    {% for student in borrow.student.all %}
+            <tr>
+                        <td scope="row"> {{book.id}}
+                        </td>
+                        <td scope="row">{{book}}</td>
+                        <td scope="row"> {{student.firstname}}</td>
+                        <td scope="row">{{borrow.status}}</td>
+                        <td scope="row">
+                            <a href="/management/approve/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
+                                <button type="button" class="btn btn-success">Accept</button>
+                            </a></td>
+                        <td><a href="/management/reject/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
+                            <button type="button" class="btn btn-danger">Reject</button>
+                        </a></td>
+                        </td>
+            </tr>
+                    {% endfor %}
+                {% endfor %}
+
+            {% endfor %}
         </tr>
-
-        {% for book in borrow.book.all %}
-        {% for student in borrow.student.all %}
-        <td scope="row"> {{book.id}}
-        </td>
-        <td scope="row">{{book}}</td>
-        <td scope="row"> {{student.firstname}}</td>
-        <td scope="row">{{borrow.status}}</td>
-        <td scope="row">
-            <a href="/management/approve/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
-                <button type="button" class="btn btn-success">Accept</button>
-            </a></td>
-        <td><a href="/management/reject/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
-            <button type="button" class="btn btn-danger">Reject</button>
-        </a></td>
-        </td>
-
-        {% endfor %}
-        {% endfor %}
-        </tr>
-
-        {% endfor %}
-
         </tbody>
     </table>
 </div>
@@ -81,10 +78,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
             {% for borrow in borrowed_list %}
             {% for book in borrow.book.all %}
             {% for student in borrow.student.all %}
+            <tr>
             <td scope="row"> {{book.id}}
             </td>
             <td scope="row">{{book}}</td>
@@ -95,6 +92,7 @@
                     <button type="button" class="btn btn-success">Return</button>
                 </a>
             </td>
+            </tr>
 
             {% endfor %}
             {% endfor %}
