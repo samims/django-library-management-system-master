@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4871400-8a7b-4546-820d-d8bbf91ab780" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/django-library-management-system-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django-library-management-system-master.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django-library-management-system-master/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/django-library-management-system-master/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-library-management-system-master/library/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django-library-management-system-master/library/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-library-management-system-master/library/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/django-library-management-system-master/library/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-library-management-system-master/library/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/django-library-management-system-master/library/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-library-management-system-master/library/templates/library/client.html" beforeDir="false" afterPath="$PROJECT_DIR$/django-library-management-system-master/library/templates/library/client.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django-library-management-system-master/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django-library-management-system-master/library/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-library-management-system-master/management/templates/management/backup.html" beforeDir="false" afterPath="$PROJECT_DIR$/django-library-management-system-master/management/templates/management/backup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-library-management-system-master/management/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django-library-management-system-master/management/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django-library-management-system-master/management/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django-library-management-system-master/management/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="44" column="24" lean-forward="true" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+            <state relative-caret-position="180">
+              <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -35,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django-library-management-system-master/management/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="51" column="16" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+            <state relative-caret-position="600">
+              <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -50,8 +46,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/templates/library/client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="59" column="61" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
+            <state relative-caret-position="120">
+              <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,11 +77,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django-library-management-system-master/management/tests.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django-library-management-system-master/management/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -88,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+            <state relative-caret-position="267">
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -110,12 +113,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/models.py">
+        <entry file="file://$PROJECT_DIR$/django-library-management-system-master/management/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="49" column="3" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="78" column="85" selection-start-line="78" selection-start-column="85" selection-end-line="78" selection-end-column="85" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,6 +160,7 @@
       <find>now</find>
       <find>borrow</find>
       <find>reject</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,14 +186,14 @@
         <option value="$PROJECT_DIR$/django-library-management-system-master/libraryms/urls.py" />
         <option value="$PROJECT_DIR$/django-library-management-system-master/accounts/urls.py" />
         <option value="$PROJECT_DIR$/django-library-management-system-master/accounts/views.py" />
-        <option value="$PROJECT_DIR$/django-library-management-system-master/library/models.py" />
-        <option value="$PROJECT_DIR$/django-library-management-system-master/library/admin.py" />
-        <option value="$PROJECT_DIR$/django-library-management-system-master/library/templates/library/client.html" />
         <option value="$PROJECT_DIR$/django-library-management-system-master/library/urls.py" />
-        <option value="$PROJECT_DIR$/django-library-management-system-master/library/views.py" />
         <option value="$PROJECT_DIR$/django-library-management-system-master/management/urls.py" />
         <option value="$PROJECT_DIR$/django-library-management-system-master/management/templates/management/backup.html" />
         <option value="$PROJECT_DIR$/django-library-management-system-master/management/views.py" />
+        <option value="$PROJECT_DIR$/django-library-management-system-master/library/views.py" />
+        <option value="$PROJECT_DIR$/django-library-management-system-master/library/templates/library/client.html" />
+        <option value="$PROJECT_DIR$/django-library-management-system-master/library/admin.py" />
+        <option value="$PROJECT_DIR$/django-library-management-system-master/library/models.py" />
       </list>
     </option>
   </component>
@@ -188,8 +204,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="481" />
-    <option name="y" value="168" />
+    <option name="x" value="396" />
+    <option name="y" value="198" />
     <option name="width" value="931" />
     <option name="height" value="685" />
   </component>
@@ -220,21 +236,6 @@
               <item name="django-library-management-system-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="django-library-management-system-master" type="462c0819:PsiDirectoryNode" />
               <item name="django-library-management-system-master" type="462c0819:PsiDirectoryNode" />
-              <item name="library" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-library-management-system-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-library-management-system-master" type="462c0819:PsiDirectoryNode" />
-              <item name="django-library-management-system-master" type="462c0819:PsiDirectoryNode" />
-              <item name="library" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="library" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-library-management-system-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-library-management-system-master" type="462c0819:PsiDirectoryNode" />
-              <item name="django-library-management-system-master" type="462c0819:PsiDirectoryNode" />
               <item name="libraryms" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -249,14 +250,6 @@
               <item name="django-library-management-system-master" type="462c0819:PsiDirectoryNode" />
               <item name="management" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-library-management-system-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-library-management-system-master" type="462c0819:PsiDirectoryNode" />
-              <item name="django-library-management-system-master" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -485,10 +478,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="418" y="93" width="931" height="685" extended-state="0" />
+    <frame x="396" y="198" width="931" height="685" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1841808" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1841808" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -499,7 +492,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.26079136" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.25719425" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="11" />
@@ -713,16 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/templates/return.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -743,16 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/management/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django-library-management-system-master/accounts/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -766,16 +739,6 @@
     <entry file="file://$PROJECT_DIR$/django-library-management-system-master/management/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="49" column="3" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django-library-management-system-master/libraryms/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -786,30 +749,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/templates/library/client.html">
+    <entry file="file://$USER_HOME$/.virtualenvs/richik-env/lib/python3.6/site-packages/django/shortcuts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="59" column="61" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="44" column="24" lean-forward="true" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="128">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
         </state>
       </provider>
     </entry>
@@ -833,19 +776,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/richik-env/lib/python3.6/site-packages/django/shortcuts.py">
+    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
+        <state relative-caret-position="267">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/django-library-management-system-master/management/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="51" column="16" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+        <state relative-caret-position="600">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/templates/library/client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/management/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django-library-management-system-master/library/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="78" column="85" selection-start-line="78" selection-start-column="85" selection-end-line="78" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>

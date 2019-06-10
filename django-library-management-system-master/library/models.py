@@ -1,14 +1,21 @@
-from django.db import models
 from datetime import date
 
 from django.contrib.auth import get_user_model
+from django.core.exceptions import FieldError
+from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 User = get_user_model()
+
 
 # Create your models here.
 
 class Category(models.Model):
     title = models.CharField(max_length=255, unique=True)
+
+    class Meta:
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.title
@@ -16,6 +23,7 @@ class Category(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=255, unique=True)
+    serial = models.CharField(max_length=10, blank=True, null=True, unique=True)
     categories = models.ManyToManyField(Category)
     cover = models.TextField(max_length=100000, blank=True, null=True)
     author = models.CharField(max_length=255, unique=True)
@@ -52,3 +60,20 @@ class Borrow(models.Model):
     approved = models.BooleanField(default=False)
 
 
+@receiver(pre_save)
+def set_serial(sender, instance, *args, **kwargs):
+    if not instance.id:
+        last_obj = Book.objects.last()
+        if last_obj:
+            if last_obj.serial:
+                serial = str(int(last_obj.serial) + 1).zfill(6)
+                instance.serial = serial
+            else:
+                raise FieldError("Book object <{}>  serial does not exist".format(last_obj.id))
+        else:
+            instance.serial = '1'.zfill(6)
+    else:
+        # can't update without serial if you don't want
+        # comment out this else block
+        if not instance.serial:
+            raise FieldError("Book object {} does not have serial".format(instance.id))
