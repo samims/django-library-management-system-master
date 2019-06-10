@@ -1,8 +1,9 @@
 from datetime import datetime
-
+import os
+import openpyxl
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import JsonResponse, Http404
+from django.http import JsonResponse, Http404, HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 
@@ -172,3 +173,23 @@ def students(request):
         return redirect("/students")
     students = Student.objects.all()
     return render(request, "students.html", {"students": students})
+
+
+def upload_books(request):
+    cwd = os.getcwd()
+    myfile = os.path.join(cwd, "book.XLSX")
+    wb = openpyxl.load_workbook(myfile)
+    for sheet in wb.get_sheet_names():
+        cur_sheet = wb.get_sheet_by_name(sheet)
+        for cell in cur_sheet.values:
+            print(cell)
+            book = Book.objects.create(title=cell[2], author=cell[3], year=cell[5], price=cell[6])
+            category = cell[4]
+
+            if category:
+                if not Category.objects.filter(title=cell[4]):
+                    category = Category.objects.create(title=category)
+                else:
+                    category = Category.objects.filter(title=category).first()
+                book.categories.add(category)
+    return HttpResponse("Hi")

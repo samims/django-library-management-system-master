@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^delete_category/(\d+)/$', views.delete_category, name="delete_category"),
     path('students/', views.students, name="students"),
     path('books/', views.BookListView.as_view(), name="books"),
+    path('upload/books/', views.upload_books, name='upload_books'),
 
 
 ]

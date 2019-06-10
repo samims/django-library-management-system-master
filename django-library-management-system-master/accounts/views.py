@@ -6,6 +6,7 @@ from django.contrib.auth import (authenticate,
 from accounts.forms import UserRegistrationForm
 from library.models import Student
 
+
 def register_view(request):  # Creates a New Account & login New users
     if request.user.is_authenticated:
         return redirect("/")
@@ -41,6 +42,8 @@ def login_view(request):
     if user is not None:
         if user.is_active:
             login(request, user)
+            if request.user.is_staff:
+                return redirect("management:requested_books")
             return redirect("/books")
         else:
             return render(request, 'accounts/login.html', {'error_message': 'Your account has been disabled'})

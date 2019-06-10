@@ -22,13 +22,15 @@ class Category(models.Model):
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=255, unique=True)
+    title = models.CharField(max_length=255, blank=False, null=True)
     serial = models.CharField(max_length=10, blank=True, null=True, unique=True)
-    categories = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category, blank=True)
     cover = models.TextField(max_length=100000, blank=True, null=True)
-    author = models.CharField(max_length=255, unique=True)
+    author = models.CharField(max_length=255, null=True)
     description = models.TextField(max_length=25000, blank=True, null=True)
     available = models.IntegerField(default=0)
+    price = models.CharField(max_length=50, blank=True, null=True)
+    year = models.CharField(max_length=20, blank=True, null=True)
 
     def __str__(self):
         return self.title

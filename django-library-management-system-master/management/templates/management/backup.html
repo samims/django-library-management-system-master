@@ -39,11 +39,11 @@
                 {% for book in borrow.book.all %}
                     {% for student in borrow.student.all %}
             <tr>
-                        <td scope="row"> {{book.id}}
+                        <td scope="row"> {{book.serial}}
                         </td>
                         <td scope="row">{{book}}</td>
-                        <td scope="row"> {{student.firstname}}</td>
-                        <td scope="row">{{borrow.status}}</td>
+                        <td scope="row"> {{book.author}}</td>
+                        <td scope="row">{{student.firstname}} {{student.lastname}}</td>
                         <td scope="row">
                             <a href="/management/approve/?student={{student.id}}&book={{book.id}}&borrow={{borrow.id}}">
                                 <button type="button" class="btn btn-success">Accept</button>
@@ -82,11 +82,11 @@
             {% for book in borrow.book.all %}
             {% for student in borrow.student.all %}
             <tr>
-            <td scope="row"> {{book.id}}
+            <td scope="row"> {{book.serial}}
             </td>
             <td scope="row">{{book}}</td>
-            <td scope="row"> {{student.firstname}} {{student.lastname}}</td>
-            <td scope="row">{{borrow.status}}</td>
+            <td scope="row"> {{book.author}} {{student.lastname}}</td>
+            <td scope="row">{{student.firstname}} {{student.lastname}}</td>
             <td scope="row">
                 <a href="/management/return/?borrow_id={{borrow.id}}&book={{book.id}}&borrow={{borrow.id}}">
                     <button type="button" class="btn btn-success">Return</button>
