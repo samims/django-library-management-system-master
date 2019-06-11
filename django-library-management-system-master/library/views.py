@@ -13,7 +13,8 @@ from library.models import Book, Category, Student, Borrow
 
 class BookListView(LoginRequiredMixin, ListView):
     model = Book
-    queryset = Book.objects.filter(available__gte=1)
+    # queryset = Book.objects.filter(available__gte=1)
+    queryset = Book.objects.all()
     template_name = 'library/client.html'
 
     def get_context_data(self, *args, **kwargs):
@@ -24,6 +25,7 @@ class BookListView(LoginRequiredMixin, ListView):
         for obj in obj_list.filter(status='Borrowed'):
             borrowed_book_list = list(obj.book.values_list('id', flat=True))
             borrowed_list.extend(borrowed_book_list)
+            print(borrowed_list)
 
         for obj in obj_list.filter(status='Requested'):
             requested_book_list = list(obj.book.values_list('id', flat=True))

@@ -57,12 +57,18 @@ def reject(request):
 
 
 def returning(request):
-    b_id = int(request.GET.get("borrow_id"))
-    borrow = get_object_or_404(Borrow, id=b_id)
-    borrow.date = datetime.now()
-    borrow.status = "Returned"
-    borrow.save()
-    return redirect('management:requested_books')
+    if request.user.is_staff:
+        b_id = int(request.GET.get("borrow_id"))
+        book_id = int(request.GET.get('book'))
+        borrow = get_object_or_404(Borrow, id=b_id)
+        book = get_object_or_404(Book, id=book_id)
+        book.available = book.available + 1
+        book.save()
+        borrow.date = datetime.now()
+        borrow.status = "Returned"
+        borrow.save()
+        return redirect('management:requested_books')
+    return redirect('/books')
 
 
 @login_required(login_url='/login')
