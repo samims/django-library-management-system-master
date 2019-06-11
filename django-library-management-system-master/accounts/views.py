@@ -21,9 +21,13 @@ def register_view(request):  # Creates a New Account & login New users
             print(user)
             # new_user = authenticate(email=user.username, password=password)
             # print("new", new_user)
-            Student.objects.create(user=user, firstname=user.first_name, lastname=user.last_name)
+            student = Student.objects.create(firstname=user.first_name, lastname=user.last_name)
+            student.user = user
+            student.save()
             login(request, user)
             return redirect("/books")
+        print(request.POST)
+        print(form.error_messages)
 
         context = {"title": title, "form": form}
 

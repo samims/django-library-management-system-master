@@ -38,12 +38,12 @@ class Book(models.Model):
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    student_id = models.CharField(max_length=255, unique=True)
+    student_id = models.CharField(max_length=255, blank=True, null=True, unique=True)
     firstname = models.CharField(max_length=255)
     lastname = models.CharField(max_length=255)
-    department = models.CharField(max_length=255)
-    section = models.CharField(max_length=10)
-    year = models.CharField(max_length=10)
+    department = models.CharField(max_length=255, blank=True, null=True)
+    section = models.CharField(max_length=10, blank=True, null=True)
+    year = models.CharField(max_length=10, blank=True, null=True)
 
     def __str__(self):
         return self.firstname
