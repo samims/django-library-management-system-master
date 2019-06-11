@@ -18,8 +18,10 @@ def register_view(request):  # Creates a New Account & login New users
             password = form.cleaned_data.get("password1")
             user.set_password(password)
             user.save()
+            print(user)
+            # new_user = authenticate(email=user.username, password=password)
+            # print("new", new_user)
             Student.objects.create(user=user, firstname=user.first_name, lastname=user.last_name)
-            # new_user = authenticate(email=user.email, password=password)
             login(request, user)
             return redirect("/books")
 
@@ -39,6 +41,7 @@ def login_view(request):
     username = request.POST['username']
     password = request.POST['password']
     user = authenticate(username=username, password=password)
+    print(user)
     if user is not None:
         if user.is_active:
             login(request, user)
